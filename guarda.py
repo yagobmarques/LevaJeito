@@ -30,7 +30,6 @@ else:
     if verificadorMetodo(metodo)==2:
         senha = sys.argv[2]
         i = 1
-        print("Sou hmac")
 opcao = sys.argv[2+i]
 if verificadorOpcao(opcao) == -1:
     print("Parâmetro <opção> inválido!")
@@ -42,9 +41,18 @@ try:
 except:
     saida = None
     pass
-print(metodo)
+print("========= Configuração ============")
+print("Método: " +  metodo)
 if metodo == "-hmac":
-    print(senha)
-print(opcao)
-print(pasta)
-print(saida)
+    print("Senha: " + senha)
+print("Opção: " + opcao)
+print("Pasta: " + pasta)
+print("Arquivo de saída: " + saida)
+print("===================================")
+files = []
+for r, d, f in os.walk(pasta):
+    for file in f:
+        files.append(os.path.join(r, file))
+
+for f in files:
+    print(f)
