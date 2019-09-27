@@ -1,9 +1,11 @@
 import sys
 import os
+import getopt
+
 def verificadorMetodo(metodo): # Função que retorna -1 se a entrada do método é inválida, 1 se é -hash e 2 se é -hmac
-    if metodo == "-hash":
+    if metodo == "--hash":
         return 1
-    if metodo == "-hmac":
+    if metodo == "--hmac":
         return 2
     return -1
 
@@ -21,29 +23,67 @@ def verificadorPasta(pasta): # Função que verifica se a string passada é um d
         return 0
     return -1
 
+# Cores para ficar bonito :)
+red =  "\033[31m" 
+reset = "\033[0m"
+green = "\033[32m"
 # Pegando arqumentos passados pelo usuário
-i = 0 # Contador auxiliar
-metodo = sys.argv[1]
-if verificadorMetodo(metodo) == -1:
-    print("Parâmetro <método> inválido!")
-else:
-    if verificadorMetodo(metodo)==2:
-        senha = sys.argv[2]
-        i = 1
-opcao = sys.argv[2+i]
-if verificadorOpcao(opcao) == -1:
-    print("Parâmetro <opção> inválido!")
-pasta = sys.argv[3+i]
-if verificadorPasta(pasta)== -1:
-    print("Parâmetro <pasta> inválido!")
+args = sys.argv[1:]
 try:
-    saida = sys.argv[4+i]
+    optlist,arguments= getopt.gnu_getopt(args,'i:t:x:o:',['hash','hmac='])
 except:
-    saida = None
-    pass
+    print("Erro de parâmetros!")
+    print(red+"Exit status -1"+reset)
+    sys.exit(-1)
+optlist,arguments= getopt.gnu_getopt(args,'i:t:x:o:',['hash','hmac='])
+print ("Opções: ",optlist)
+print ("Argumentos", arguments)
+for j in optlist:
+    if (j[0]=="--hmac"):
+        metodo = "hmac"
+        senha = j[1]
+    if (j[0]=="--hash"):
+        metodo = "hash"
+    if (j[0]=="-t"):
+        opcao = "t"
+        pasta = j[1]
+    if (j[0]=="-i"):
+        pasta = j[1]
+        opcao = "i"
+    if (j[0]=="-x"):
+        opcao = "x"
+        pasta = j[1]
+    if (j[0]== "-o"):
+        saida = j[1]
+    else:
+        saida = "tty"
+
+# Verificando as entradas dos usuários
+if verificadorPasta(pasta):
+    print("Parâmetro <pasta> inválido!")
+    print(red+"Exit status -1"+reset)
+    sys.exit(-1)
+# if verificadorMetodo(metodo) == -1:
+#     print("Parâmetro <método> inválido!")
+# else:
+#     if verificadorMetodo(metodo)==2:
+#         senha = sys.argv[2]
+#         i = 1
+# opcao = sys.argv[2+i]
+# if verificadorOpcao(opcao) == -1:
+#     print("Parâmetro <opção> inválido!")
+# pasta = sys.argv[3+i]
+# if verificadorPasta(pasta)== -1:
+#     print("Parâmetro <pasta> inválido!")
+# try:
+#     saida = sys.argv[4+i]
+# except:
+#     saida = None
+#     pass
+
 print("========= Configuração ============")
 print("Método: " +  metodo)
-if metodo == "-hmac":
+if metodo == "hmac":
     print("Senha: " + senha)
 print("Opção: " + opcao)
 print("Pasta: " + pasta)
