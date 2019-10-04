@@ -22,5 +22,4 @@ alterações detectadas/exclusões
 ## Descrição do programa
 Ao começar a monitorar uma pasta, a mesma faz uma varredura de todos os arquivos abaixo dessa pasta, gerando a hash de cada um deles e salvando em um arquivo oculto .guarda o formato "<filename> > <hash>". Assim, ao iniciar o "tracking" (opção -t), é feita uma nova varredura e os hash's são comparados com os do arquivo .guarda, gerando assim 4 status para o cada arquivo (novo, excluido, normal, alterado). Por fim, a opção -x apenas apaga o arquivo .guarda e joga no output em questão se fora bem sucedido ou não.
 ## Execução do programa
-    - Iniciando uma varredura na propria pasta:
         [Imagem](https://github.com/yagobmarques/LevaJeito/blob/master/Fotos%20Programa/Iniciando%20a%20varredura.png)
