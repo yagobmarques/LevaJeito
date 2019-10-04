@@ -24,3 +24,4 @@ Ao começar a monitorar uma pasta, a mesma faz uma varredura de todos os arquivo
 ## Execução do programa
     - Iniciando uma varredura na propria pasta:
     ![Iniciando a varredura](/Fotos Programa/Iniciando a varredura.png)
+    Format: ![Alt Text](url)
