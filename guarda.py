@@ -134,7 +134,7 @@ def t(pasta, saida, metodo): # Tracking dos arquivos
             arq_saida.write("[A]"+j+"\n")
         for j in excluidos:
             arq_saida.write("[R]"+j+"\n")
-        //Atualizando o monitoramento
+        #   Atualizando o monitoramento
         arq_oculto = open(pasta+".guarda", "w")
         for j in dicioSave:
             arq_oculto.write(j+" > "+dicioSave[j])
