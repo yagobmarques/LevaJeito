@@ -20,7 +20,46 @@ alterações detectadas/exclusões
 ## Descrição do programa
 Ao começar a monitorar uma pasta, a mesma faz uma varredura de todos os arquivos abaixo dessa pasta, gerando a hash de cada um deles e salvando em um arquivo oculto .guarda o formato "<filename> > <hash>". Assim, ao iniciar o "tracking" (opção -t), é feita uma nova varredura e os hash's são comparados com os do arquivo .guarda, gerando assim 4 status para o cada arquivo (novo, excluido, normal, alterado). Por fim, a opção -x apenas apaga o arquivo .guarda e joga no output em questão se fora bem sucedido ou não.
 ## Execução do programa
-    * Iniciando a varredura
+* Iniciando a varredura:
+   
 ![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Iniciando%20a%20varredura.png)
-    * Bilbo:
-    
+
+* Less arquivo de saida da varredura:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Less%20arq_saida%20-%20Varredura.png)
+
+* Tracking da pasta:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Tracking.png)
+
+* Less arquivo de saida do tracking:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Less%20tracking.png)
+
+* Adicionando um arquivo e re-fazendo o tracking:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Criando%20um%20arquivo%20e%20fazendo%20tracking.png)
+
+* Less arquivo de saida do tracking:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Less%20arq_saida%20-%20Apos%20adicionar%20arquivoi.png)
+
+* Removendo um arquivo e re-fazendo o tracking:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Removendo%20um%20arquivo%20e%20fazendo%20a%20tracking.png)
+
+* Saida após remover o arquivo:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Saida%20apos%20remover%20Funçoes%20hash.png)
+
+* Tracking na saida padrão:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Saida%20padrao.png)
+
+* Removendo o monitoramento de uma pasta:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/removendo%20o%20monitoramento%20de%20uma%20pasta.png)
+
+* Tentando remover uma pasta que não está sendo monitorada:
+
+![alt text](https://raw.githubusercontent.com/yagobmarques/LevaJeito/master/Fotos%20Programa/Removendo%20uma%20pasta%20que%20n~ao%20est'a%20sendo%20monitorada.png)
