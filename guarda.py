@@ -103,6 +103,7 @@ def t(pasta, saida, metodo): # Tracking dos arquivos
         # Verificação para não fazer o tracking em uma pasta que não é monitorada
         return -1
     dicioAtual = mountDictByPath(pasta,metodo) # Monta o dicionário refazendo as hash's no exato momento
+    dicioSave = dicioAtual
     alterados = [] # Vetor para guardar os nomes dos arquivos alterados
     novos = [] # Vetor para guardar os nomes dos arquivos novos
     excluidos = [] # Vetor para guardar os nomes dos arquivos excluidos
@@ -133,6 +134,11 @@ def t(pasta, saida, metodo): # Tracking dos arquivos
             arq_saida.write("[A]"+j+"\n")
         for j in excluidos:
             arq_saida.write("[R]"+j+"\n")
+        //Atualizando o monitoramento
+        arq_oculto = open(pasta+".guarda", "w")
+        for j in dicioSave:
+            arq_oculto.write(j+" > "+dicioSave[j])
+        arq_oculto.close()
         arq_saida.close()
 
 def printColorido(alterados,novos,excluidos): # Função para mostrar na tela amigavelmente o resultado do tracking
